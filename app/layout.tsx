@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Gujarati } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/Navbar";
+ 
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Noto_Sans_Gujarati({ subsets: ["gujarati"] });
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -17,10 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="gu" data-theme="cupcake">
+    <html lang="gu" data-theme="valentine">
       <body className={inter.className}>
-        <Navbar/>
-        {children}</body>
+        
+
+      <Navbar/>
+   
+        {children}
+       
+        </body>
     </html>
   );
 }

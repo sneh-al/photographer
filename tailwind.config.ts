@@ -8,17 +8,39 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    themes: ["light", "dark","valentine",],
   },
   theme: {
+    screens: {
+      'sm': '640px',
+
+      'md': '768px',
+
+      'lg': '1024px',
+
+      'xl': '1280px',
+
+      '2xl': '1536px',
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+        "0%": { transform: 'translateX(0)' },
+          "100%": { transform: 'translateX(-100%)' },
+          
+
+        }
+      }   
     },
   },
-  plugins: [daisyui],
+  plugins: [daisyui,  require('tailwind-scrollbar-hide'),require("@tailwindcss/typography")],
 };
 export default config;
